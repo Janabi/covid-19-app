@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%results.forEach(value=>{%>
+        <div>
+            <h2>Country: <%= value.country %></h2>
+            <p>Total confirmed cases: <%= value.totalConfirmed %></p>
+            <p>Total Deaths cases: <%= value.totalDeaths %></p>
+            <p>Total Recovered cases: <%= value.totalRecovered %></p>
+            <p>Date: <%= value.date %></p>
+            <form action="/addRecord" method="post">
+                <input type="hidden" name="country" value="<%= value.country %>">
+                <input type="hidden" name="totalConfirmed" value="<%= value.totalConfirmed %>">
+                <input type="hidden" name="totalDeaths" value="<%= value.totalRecovered %>">
+                <input type="hidden" name="totalRecovered" value="<%= value.totalDeaths %>">
+                <input type="hidden" name="date" value="<%= value.date %>">
+                <button>Add to Favorite</button>
+            </form>
+        </div>
+    <%})%>
+</body>
+</html>

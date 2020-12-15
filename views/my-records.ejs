@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%if(results.length === 0){%>
+        <h2>No Available Records</h2>
+    <%}%>
+    <%if (results.length > 0) {%>
+        <%results.forEach(value=>{%>
+            <div>
+                <h2>Country: <%= value.country%></h2>
+                <p>Date: <%= value.currentdate %></p>
+                <form action="/recordDetail/<%= value.id %>" method="get">
+                    <input type="hidden" name="country" value="<%= value.country %>">
+                    <input type="hidden" name="totalConfirmed" value="<%= value.totalconfirmed %>">
+                    <input type="hidden" name="totalRecovered" value="<%= value.totalrecovered %>">
+                    <input type="hidden" name="totalDeaths" value="<%= value.totaldeaths %>">
+                    <input type="hidden" name="date" value="<%= value.currentdate %>">
+                    <button>View Detail</button>
+                </form>
+            </div>
+        <%})%>
+
+    <%}%>
+</body>
+</html>

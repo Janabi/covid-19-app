@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <div>
+            <h2>Country: <%= results.country %></h2>
+            <p>Total confirmed cases: <%= results.totalconfirmed %></p>
+            <p>Total Deaths cases: <%= results.totaldeaths %></p>
+            <p>Total Recovered cases: <%= results.totalrecovered %></p>
+            <p>Date: <%= results.currentdate %></p>
+            <button id="showUpdate">Show Update</button>
+            <form action="/recordDetail/<%= results.id %>?_method=put" method="post" id="update">
+                <input type="text" name="country" value="<%= results.country %>">
+                <input type="text" name="totalConfirmed" value="<%= results.totalconfirmed %>">
+                <input type="text" name="totalDeaths" value="<%= results.totaldeaths %>">
+                <input type="text" name="totalRecovered" value="<%= results.totalrecovered %>">
+                <input type="date" name="date" value="<%= results.currentdate %>">
+                <button>Update</button>
+            </form>
+            <form action="/recordDetail/<%= results.id %>?_method=delete" method="post">
+                <button>Delete</button>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="/app.js"></script>
+</body>
+</html>

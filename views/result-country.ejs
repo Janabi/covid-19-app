@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%results.forEach(value=>{%>
+        <div>
+            <h2>Date: <%= value.Date%></h2>
+            <p>Number of confirmed cases: <%= value.Cases%></p>
+        </div>
+    <%})%>
+</body>
+</html>
